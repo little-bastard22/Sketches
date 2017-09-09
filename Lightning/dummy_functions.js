@@ -8,6 +8,7 @@ function Mage(spellLevel) {
 
 //defines a soldier object for testing
 function Enemy(id) {
+  
 
     //limits for spawning enemies
     var minposx = -350;
