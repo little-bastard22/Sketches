@@ -20,7 +20,7 @@ function setup()
   shiftSlider.position(20, 20);
   widthSlider = createSlider(1, 100, 10, 1);
   widthSlider.position(20, 50);
-  speedSlider = createSlider(48, 59, 55, 1);
+  speedSlider = createSlider(48, 54, 54, 1);
   speedSlider.position(20, 80);
 }
 

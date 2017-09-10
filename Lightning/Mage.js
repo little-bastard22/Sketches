@@ -14,7 +14,7 @@ function Mage(spellLevel) {
         livingUnits.sortUnits(lastTarget);
         while (targetsHit < maxTargets)
         {
-          if (livingUnits.length >= 4)
+          if (livingUnits.arr.length >= 4)
           {
             lastTarget = livingUnits.arr[chooseTarget()];
           }
@@ -25,10 +25,10 @@ function Mage(spellLevel) {
           orderArr.push(lastTarget);
           lastTarget.AddDamage(lastDmg);
           lastDmg = Math.ceil(lastDmg/1.5);
-          livingUnits.arr.shift();
           livingUnits.sortUnits(lastTarget);
+          livingUnits.arr.shift();          
           ++targetsHit;
-          if (targetsHit >= allUnits.length)
+          if (targetsHit >= allUnits.arr.length)
           {
             break;
           }

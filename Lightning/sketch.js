@@ -2,11 +2,13 @@
 /// <reference path="main_function.js" />
 
 //p5.js function that is executed on init
+
+
 function setup()
 {
   createCanvas(800, 600);
   background(255);
-  spellLevel = 3;
+  spellLevel = 2;
   badassMage = new Mage(spellLevel);
   allUnits = new UnitArr;
   allUnits.createEnemies();
