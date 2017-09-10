@@ -8,8 +8,9 @@ function setup()
   background(255);
   spellLevel = 3;
   badassMage = new Mage(spellLevel);
-  createEnemies();
-  orderArr = castSpell(badassMage);
+  allUnits = new UnitArr;
+  allUnits.createEnemies();
+  orderArr = badassMage.castSpell();
 }
 
 
@@ -22,8 +23,8 @@ function draw()
   fill(255, 255, 255, 100);
   ellipse(badassMage.pos.x, badassMage.pos.y, 40, 40);
   fill(0);
-  for (i = 0; i < allUnits.length; i++) {
-      enemy = allUnits[i];
+  for (i = 0; i < allUnits.arr.length; i++) {
+      enemy = allUnits.arr[i];
       ellipse(enemy.pos.x, enemy.pos.y, 30, 30);
       fill(255,100,100);
       text(enemy.curHP, enemy.pos.x + 10, enemy.pos.y + 10);
