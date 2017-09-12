@@ -2,7 +2,7 @@
 /// <reference path="main_function.js" />
 
 //p5.js function that is executed on init
-j = 0;
+j = 1;
 
 function setup()
 {
@@ -30,40 +30,45 @@ function setup()
 }
 
 
-
 //p5.js function that draws the image
 function draw()
 {
   // noLoop();
   translate(400, 300);
-  if( frameCount % 6 == 0 && j < orderArr.length-1)
+  if( frameCount % 6 == 0 && j < orderArr.length)
   {
+    if (j == 1)
+    {
+      draw_enemy(orderArr[0]);
+    }
     push();
+    stroke(0,0,255);
+    lastEnemy = orderArr[j-1];
     enemy = orderArr[j];
-    nextEnemy = orderArr[j+1];
-      x = enemy.pos.x;
-      y = enemy.pos.y;
-      x1 = nextEnemy.pos.x;
-      y1 = nextEnemy.pos.y;
-        push();
-          stroke(0,0,255);
-          fill(0,0,255)
-          line(x,y,x1,y1);
-          if (j == 0)
-          {
-            ellipse(enemy.pos.x, enemy.pos.y, 30, 30);
-            push()
-              stroke(0,0,0,0);
-              fill(255);
-              text(enemy.curHP, enemy.pos.x - 7, enemy.pos.y + 7);
-            pop()
-          }
-          ellipse(nextEnemy.pos.x, nextEnemy.pos.y, 30, 30);
-        pop()
-      stroke(0,0,0,0);
-      fill(255);
-      text(nextEnemy.curHP, nextEnemy.pos.x - 7, nextEnemy.pos.y + 7);
-      ++j;
+      x = lastEnemy.pos.x;
+      y = lastEnemy.pos.y;
+      x1 = enemy.pos.x;
+      y1 = enemy.pos.y;
+      line(x,y,x1,y1);
+      draw_enemy(enemy);
     pop();
+    ++j;
   }
+}
+
+function draw_enemy(enemy)
+{
+  push();
+    stroke(0,0,0,0);
+    if (enemy.curHP <=0)
+    {
+      fill(0);
+    } else
+    {
+      fill(0,0,255);
+    }
+    ellipse(enemy.pos.x, enemy.pos.y, 30, 30);
+    fill(255);
+    text(enemy.curHP, enemy.pos.x - 7, enemy.pos.y + 7);
+  pop()
 }
