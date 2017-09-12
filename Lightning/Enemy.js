@@ -6,8 +6,8 @@ function Enemy(id) {
     var minposy = -250;
     var maxposy = 250;
     //enemy is given random coordinates
-    var posx = Math.random() * (maxposx - minposx) + minposx;
-    var posy = Math.random() * (maxposy - minposy) + minposy;
+    var posx = random(minposx, maxposx);
+    var posy = random(minposy, maxposy);
 
 
     this.name = "Enemy " + id;
@@ -27,7 +27,7 @@ function Enemy(id) {
       this.curHP -= damage;
       if (this.curHP <= 0)
       {
-        Kill(soldier);
+        this.Kill();
       }
     }
 }

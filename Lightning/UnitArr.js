@@ -4,7 +4,7 @@ function UnitArr()
 
   this.createEnemies = function()
   {
-      for (i = 0; i < 10; i++)
+      for (i = 0; i < 40; i++)
       {
         newEnemy = new Enemy(i);
         this.arr.push(newEnemy);

@@ -10,7 +10,7 @@ function Mage(spellLevel) {
         livingUnits.arr = allUnits.arr.slice();
         var targetsHit = 0;
         var lastTarget = this;
-        var lastDmg = 25;
+        var lastDmg = 25*this.spellLevel;
         livingUnits.sortUnits(lastTarget);
         while (targetsHit < maxTargets)
         {
@@ -26,7 +26,7 @@ function Mage(spellLevel) {
           lastTarget.AddDamage(lastDmg);
           lastDmg = Math.ceil(lastDmg/1.5);
           livingUnits.sortUnits(lastTarget);
-          livingUnits.arr.shift();          
+          livingUnits.arr.shift();
           ++targetsHit;
           if (targetsHit >= allUnits.arr.length)
           {
