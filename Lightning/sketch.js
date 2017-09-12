@@ -69,6 +69,6 @@ function draw_enemy(enemy)
     }
     ellipse(enemy.pos.x, enemy.pos.y, 30, 30);
     fill(255);
-    text(enemy.curHP, enemy.pos.x - 7, enemy.pos.y + 7);
+    text(enemy.curHP, enemy.pos.x - 6, enemy.pos.y + 6);
   pop()
 }
