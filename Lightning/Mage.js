@@ -12,27 +12,26 @@ function Mage(spellLevel) {
         var lastTarget = this;
         var lastDmg = 12*this.spellLevel;
         livingUnits.sortUnits(lastTarget);
-        while (targetsHit < maxTargets)
+        console.log(livingUnits.arr.length);
+        while (targetsHit <= maxTargets && livingUnits.arr.length > 0)
         {
           if (livingUnits.arr.length >= 4)
           {
-            lastTarget = livingUnits.arr[chooseTarget()];
+            targetIndex = chooseTarget();
           }
           else
           {
-            lastTarget = livingUnits.arr[0];
+            targetIndex = 0;
           }
+          lastTarget = livingUnits.arr[targetIndex];
           orderArr.push(lastTarget);
           lastTarget.AddDamage(this.damageCalculator(lastDmg));
           lastDmg = Math.ceil(lastDmg/1.1);
+          livingUnits.arr.splice(targetIndex, 1);
           livingUnits.sortUnits(lastTarget);
-          livingUnits.arr.shift();
           ++targetsHit;
-          if (targetsHit >= allUnits.arr.length)
-          {
-            break;
-          }
         }
+        console.log(orderArr.length);
         return orderArr;
     }
 

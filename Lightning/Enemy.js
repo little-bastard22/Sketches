@@ -20,6 +20,7 @@ function Enemy(id) {
     this.Kill = function()
     {
       this.isDead = true;
+      // console.log(this.name + " died");
     }
 
     this.AddDamage = function(damage)
