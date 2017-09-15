@@ -10,7 +10,7 @@ function Mage(spellLevel) {
         livingUnits.arr = allUnits.arr.slice();
         var targetsHit = 0;
         var lastTarget = this;
-        var lastDmg = 25*this.spellLevel;
+        var lastDmg = 12*this.spellLevel;
         livingUnits.sortUnits(lastTarget);
         while (targetsHit < maxTargets)
         {
@@ -23,8 +23,8 @@ function Mage(spellLevel) {
             lastTarget = livingUnits.arr[0];
           }
           orderArr.push(lastTarget);
-          lastTarget.AddDamage(lastDmg);
-          lastDmg = Math.ceil(lastDmg/1.5);
+          lastTarget.AddDamage(this.damageCalculator(lastDmg));
+          lastDmg = Math.ceil(lastDmg/1.1);
           livingUnits.sortUnits(lastTarget);
           livingUnits.arr.shift();
           ++targetsHit;
@@ -34,5 +34,10 @@ function Mage(spellLevel) {
           }
         }
         return orderArr;
+    }
+
+    this.damageCalculator = function(dmg)
+    {
+      return round(random(dmg*0.5, dmg*1.5));
     }
 }
