@@ -13,7 +13,7 @@ function Mage(spellLevel) {
         var lastDmg = 12*this.spellLevel;
         livingUnits.sortUnits(lastTarget);
         console.log(livingUnits.arr.length);
-        while (targetsHit <= maxTargets && livingUnits.arr.length > 0)
+        while (targetsHit < maxTargets && livingUnits.arr.length > 0)
         {
           if (livingUnits.arr.length >= 4)
           {
