@@ -36,7 +36,8 @@ function draw()
       draw_enemy(orderArr[0]);
     }
     push();
-      stroke(0,0,255);
+      stroke(0, 0, 255, 90);
+      strokeWeight(4);
       lastEnemy = orderArr[j-1];
       enemy = orderArr[j];
       x = lastEnemy.pos.x;
@@ -44,6 +45,7 @@ function draw()
       x1 = enemy.pos.x;
       y1 = enemy.pos.y;
       line(x,y,x1,y1);
+      draw_enemy(lastEnemy);
       draw_enemy(enemy);
     pop();
     ++j;
@@ -53,6 +55,7 @@ function draw()
 function draw_enemy(enemy)
 {
   push();
+    ellipseMode(CENTER)
     stroke(0,0,0,0);
     if (enemy.curHP <=0)
       {
@@ -68,7 +71,9 @@ function draw_enemy(enemy)
       }
     ellipse(enemy.pos.x, enemy.pos.y, 30, 30);
     fill(255);
-    text(enemy.curHP, enemy.pos.x - 6, enemy.pos.y + 6);
+    textAlign(CENTER, CENTER);
+    textStyle(BOLD);
+    text(enemy.curHP, enemy.pos.x, enemy.pos.y);
   pop()
 }
 

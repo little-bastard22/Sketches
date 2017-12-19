@@ -12,4 +12,6 @@ more lightning-like.
 The attack was designed to be simple to implement, yet fun to use, with
 a good sense of progression in leveling the spell's level.
 
-Visualisation in p5.js.
+Visualisation in p5.js. 
+
+Deployed version to be found here: https://lightning-spell.herokuapp.com/

@@ -1,2 +1,6 @@
 .*
 !.gitignore
+SheetsMapper/client_id.json
+node_modules/*
+SheetMapper/
+NewSketch/
